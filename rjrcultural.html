@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rizal J. Rodriguez Sr. National High School - Cultural Contest 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue-dark:#1e3a8a;
+      --blue-light:#e0f2fe;
+      --yellow:#facc15;
+      --white:#ffffff;
+      --fg:#1e293b;
+      --muted:#334155;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      overflow:hidden; /* disable scrolling */
+    }
+    body{
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Segoe UI Emoji","Segoe UI Symbol";
+      background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue-dark) 100%);
+      color:var(--fg);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .container{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:2rem;
+      flex:1;
+      max-width:1000px;
+      width:100%;
+    }
+    .slideshow{
+      position:relative;
+      width:350px;
+      height:350px;
+      border-radius:1rem;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(30,58,138,.3);
+      flex-shrink:0;
+    }
+    .slideshow img{
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:1rem;
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+    }
+    .slideshow img.active{
+      opacity:1;
+    }
+    .main{ text-align:center; padding:1rem; flex:1; }
+    h1{
+      font-size:clamp(1.75rem, 4vw + 1rem, 3rem);
+      line-height:1.1;
+      margin:0;
+      font-weight:800;
+      letter-spacing:0.02em;
+      text-wrap:balance;
+      color:var(--blue-dark);
+    }
+    h2{
+      margin-top:1rem;
+      font-size:clamp(1.25rem, 3vw + .5rem, 2rem);
+      font-weight:700;
+      color:var(--yellow);
+      text-shadow:1px 1px 3px rgba(0,0,0,.2);
+    }
+    .card{
+      margin-top:1rem;
+      padding:1.25rem 1.5rem;
+      border-radius:1.25rem;
+      background:var(--white);
+      border:2px solid var(--yellow);
+      box-shadow: 0 10px 25px rgba(30,58,138,.3);
+    }
+    .ict-logo{
+      max-width:80px;
+      display:block;
+      margin:0.5rem auto 0 auto;
+    }
+    .dropdowns{
+      margin-top:2rem;
+      display:grid;
+      gap:1rem;
+      max-width:300px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    select{
+      width:100%;
+      padding:.6rem .8rem;
+      border-radius:.75rem;
+      border:1px solid var(--blue-dark);
+      background:var(--blue-light);
+      color:var(--fg);
+      font-size:.9rem;
+      font-weight:600;
+    }
+    .powered{
+      margin-top:2rem;
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--blue-dark);
+    }
+    .footer{
+      margin:0.5rem 0;
+      font-size:.8rem;
+      opacity:.8;
+      color:var(--white);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Slideshow Section -->
+    <div class="slideshow">
+      <img src="1.png" alt="Cultural Contest 2025" class="active">
+      <img src="2.png" alt="Contest Image 2">
+      <img src="3.png" alt="Contest Image 3">
+      <img src="4.png" alt="Contest Image 4">
+    </div>
+
+    <main class="main">
+      <div class="card">
+        <h1>Rizal J. Rodriguez Sr. National High School</h1>
+        <h2>Cultural Contest 2025</h2>
+        <div class="dropdowns">
+          <select>
+            <option disabled selected>Vocal Solo - Select Judge</option>
+            <option>JUDGE1</option>
+            <option>JUDGE2</option>
+            <option>JUDGE3</option>
+          </select>
+          <select>
+            <option disabled selected>Vocal Duet - Select Judge</option>
+            <option>JUDGE1</option>
+            <option>JUDGE2</option>
+            <option>JUDGE3</option>
+          </select>
+          <select>
+            <option disabled selected>Retro Dance - Select Judge</option>
+            <option>JUDGE1</option>
+            <option>JUDGE2</option>
+            <option>JUDGE3</option>
+          </select>
+          <select>
+            <option disabled selected>Modern Dance - Select Judge</option>
+            <option>JUDGE1</option>
+            <option>JUDGE2</option>
+            <option>JUDGE3</option>
+          </select>
+        </div>
+        <div class="powered">
+          <img src="ictstewards.jpg" alt="ICT Stewards Logo" class="ict-logo" />
+          Powered by ICT Stewards since 2019
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer with dynamic year -->
+  <div class="footer">© <span id="year"></span> Rizal J. Rodriguez Sr. NHS</div>
+
+  <script>
+    // Insert current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Slideshow logic
+    const slides = document.querySelectorAll('.slideshow img');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000); // change every 3 seconds
+  </script>
+</body>
+</html>
